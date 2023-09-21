@@ -23,12 +23,18 @@
 └── tsconfig.json
 ```
 
+## Запуск
+```
+npm i 
+npx playwright install
+npx playwright test
+```
 ## CI
 Запуск CI настроен на каждый push в репозиторий с командой `npx playwright test --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL`. Состоит из 2х этапов
 - tests - запускается проект из 5 параллельных jobs. В качестве артефактов `test_results.xml` и `/blob-report`.
 - report - отправка сообщения в чат скриптом reportToChat.ts и слияние отчетов в один. Артефакты хранятся 1 неделю
 
 ## Полезные ссылки
-https://playwright.dev/docs/test-sharding#merge-reports-cli - дока playwright, слияние нескольких отчетов в 1 html
-https://playwright.dev/docs/ci#gitlab-ci - дока playwright, создание CI для GitLab-CI
+- https://playwright.dev/docs/test-sharding#merge-reports-cli - дока playwright, слияние нескольких отчетов в 1 html
+- https://playwright.dev/docs/ci#gitlab-ci - дока playwright, создание CI для GitLab-CI
 
