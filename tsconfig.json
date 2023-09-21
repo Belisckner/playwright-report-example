@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext", // or ES2015, ES2020
+        "moduleResolution": "nodenext"
+    },
+    "ts-node": {
+        // Tell ts-node CLI to install the --loader automatically
+        "esm": true
+    },
+}

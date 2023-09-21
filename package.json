@@ -1,0 +1,22 @@
+{
+  "name": "playwright-report-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Belisckner/playwright-report-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "1.37.0"
+  },
+  "dependencies": {
+    "got": "12.6.0",
+    "ts-node": "10.9.1"
+  }
+}

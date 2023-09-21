@@ -1,0 +1,41 @@
+stages:
+  - tests
+  - report
+
+e2e:
+  image: mcr.microsoft.com/playwright:v1.37.0
+  stage: tests
+  parallel: 5
+  allow_failure: true
+  tags:
+    - kube-dev
+  before_script:
+    - npm i
+  script:
+    - npx playwright test --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - "**/test_results.xml"
+      - "**/blob-report"
+    reports:
+      junit: "**/test_results.xml"
+
+reports:
+  image: mcr.microsoft.com/playwright:v1.37.0
+  stage: report
+  needs: [e2e]
+  tags:
+    - kube-dev
+  before_script:
+    - npm i ts-node got
+  script:
+    - npx playwright merge-reports --reporter=html ./blob-report
+    - npx ts-node helpers/reportToChat.ts
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - "**/blob-report"
+      - "**/playwright-report"
