@@ -1,9 +1,10 @@
 # Playwright CI example
 ## Описание
-Проект пример пол gitlab-ci для параллельного запуска тестов и единого отчета со всех прогонов. Помимо тестов playwright init добавлен скрипт отправки сообщений в rocket-chat по webhook и gitlab-ci.yml 
+Проект пример для параллельного запуска тестов и единого отчета со всех прогонов. Помимо тестов playwright init добавлен скрипт отправки сообщений в rocket-chat по webhook и gitlab-ci.yml 
 
 ## Стек
 - playwright
+- typescript
 - ts-node
 - got
 
